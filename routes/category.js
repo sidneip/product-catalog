@@ -22,6 +22,7 @@ CategoriesController.post('/', function (req, res, next) {
 CategoriesController.put('/:id', function (req, res, next) {
   Category.findById(req.params.id, function(err, category){
     category.name = req.body.name;
+    if(req.body.description) category.description = req.body.description;
     category.save(function (err, category) {
       if (err) return res.sendStatus(400);
       return res.json(category);
