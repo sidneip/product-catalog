@@ -9,6 +9,7 @@ var productsController = require('./routes/product');
 var categoriesController = require('./routes/category')
 
 var mongoose = require('mongoose');
+mongoose.set('debug', true);
 var app = express();
 
 mongoose.connect('mongodb://localhost/products', function(err){
